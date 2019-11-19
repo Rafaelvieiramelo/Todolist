@@ -34,25 +34,25 @@ export class TodoListComponent implements OnInit {
       });
     },2000);
   }
-
+  
   public concludeTodo(todoIndex: number): void {
     this.loading = true;
     setTimeout(() => {
       let todo = this.todoListArray[todoIndex];
-      if (todo.done) {
+      // if (todo.done) {
         this.todoService.delete(todo.id)
         .subscribe(() => {
           this.successMessage("Todo removido com sucesso");
           this.getTodos();
         }
         ,(error) => this.errorMessage(error, "Erro ao atualizar Todo"));
-      }
-      else {
-        todo.done = true;
-        this.todoService.update(todo)
-        .subscribe((data: Todo) => this.successMessage("Todo atualizado com sucesso")
-        ,(error) => this.errorMessage(error, "Erro ao atualizar Todo"));
-      }
+      // }
+      // else {
+      //   todo.done = true;
+      //   this.todoService.update(todo)
+      //   .subscribe((data: Todo) => this.successMessage("Todo atualizado com sucesso")
+      //   ,(error) => this.errorMessage(error, "Erro ao atualizar Todo"));
+      // }
     },2000);
   }
 

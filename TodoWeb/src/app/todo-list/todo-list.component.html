@@ -1,35 +1,36 @@
-<mat-card class="todoItem">
-    <mat-card-actions layout="row" align="center">
-        <button mat-button>
-            <a [routerLink]="[ '/todo/']">
-                <mat-icon>add</mat-icon> CREATE TODO
-            </a>
+<div class="cabecalho" >
+<h1>Cadastro de Clientes</h1>
+</div>
+<br>
+<!-- <mat-card class="todoNovo"> -->
+    <!-- <mat-card-actions layout="row" align="left"> -->
+        <button class="btn">
+            <a [routerLink]="[ '/todo/']"> Novo Cliente</a>
         </button>
-    </mat-card-actions>
-</mat-card>
+    <!-- </mat-card-actions> -->
+<!-- </mat-card> -->
+<br>
+<br>
 
-<div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+<div fxLayout="row wrap" fxLayoutGap="10px" >
     <ng-container *ngFor="let item of todoListArray; let itemIndex = index">
         <mat-card class="todoItem">
-            <mat-card-header>
-                <div mat-card-avatar>
-                <span class="md-headline {{item.priority==1 ? 'high' : item.priority==2 ? 'medium' : 'low'}}">
-                    <mat-icon>{{ item.priority==1 ? 'error' : item.priority==2 ? 'warning' : 'info'}}</mat-icon>
-                </span>
-                </div>
+            <mat-card-header> 
                 <mat-card-title>
                 {{item.todoTitle}}  
                 </mat-card-title>
-                <mat-card-subtitle>Criado em {{item.creationDate}}</mat-card-subtitle>
+                <mat-card-subtitle>Data de Nascimento: {{item.creationDate}}</mat-card-subtitle>
+                <mat-card-subtitle>Ativo: {{item.done == '0' ? 'Não' : item.done == '1' ? 'Sim' : 'erro'}}</mat-card-subtitle>                
+                <mat-card-subtitle>Sexo: {{item.priority == 1 ? 'Masculino' : item.priority == 2 ? 'Feminino' : 'erro'}}</mat-card-subtitle>
             </mat-card-header>
-            <mat-card-actions layout="row" align="end">
+            <mat-card-actions layout="row" align="left">
                     <button mat-button>
                         <a [routerLink]="[ '/todo', item.id]">
                             <mat-icon>edit</mat-icon>
                         </a>
                     </button>                        
                 <button mat-button (click)="concludeTodo(itemIndex)" >
-                    <mat-icon>{{ item.done ? 'delete' : 'check'}}</mat-icon>
+                    <mat-icon>delete</mat-icon>
                 </button>
             </mat-card-actions>
         </mat-card>

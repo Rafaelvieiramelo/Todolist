@@ -1,36 +1,33 @@
 <mat-card>
         <mat-card-title>
-          Tasks
+          Novo Cliente
         </mat-card-title>
         <mat-card-content>
           <form [formGroup]="todoForm">
             <input type="hidden" formControlName="id"/>
             <input type="hidden" formControlName="creationDate"/>
             <mat-form-field>
-              <input matInput placeholder="Titulo" formControlName="todoTitle">
+              <input matInput placeholder="Nome" formControlName="todoTitle">
             </mat-form-field>
             <br/>
             <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="Data de criação" formControlName="parsedDate">
+              <input matInput [matDatepicker]="picker" placeholder="Data de Nascimento" formControlName="parsedDate">
               <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
             <br/>
-            <mat-checkbox formControlName="done">Finalizado</mat-checkbox>
+            <mat-checkbox formControlName="done">Ativo</mat-checkbox>
             <br/>
             <br/>
             <mat-form-field>
-              <mat-label>Prioridade</mat-label>
+              <mat-label>Sexo</mat-label>
               <mat-select formControlName="priority">
                 <mat-option value="1">
-                  Alta
+                  Masculino
                 </mat-option>
                 <mat-option value="2">
-                  Média
-                </mat-option>
-                <mat-option value="3">
-                  Baixa
-                </mat-option>
+                  Feminino
+                </mat-option>                
               </mat-select>
             </mat-form-field>
           </form>

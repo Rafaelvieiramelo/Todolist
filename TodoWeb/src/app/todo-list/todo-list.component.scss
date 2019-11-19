@@ -1,7 +1,27 @@
+.cabecalho{
+
+    height: 20%;
+    min-height: 25%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    background-color: rgba(200, 206, 209, 0.938)
+
+
+     
+}
 .todoItem {
     margin-bottom: 20px;
-    width: 400px;
+    background-color: lightblue  
 }
+
+.todoNovo{
+    margin-bottom: 20px;
+    
+ }
 
 mat-card-header  {
     size: 2em;
