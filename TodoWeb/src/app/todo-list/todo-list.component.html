@@ -1,17 +1,14 @@
 <div class="cabecalho" >
-<h1>Cadastro de Clientes</h1>
+<h1>Clientes</h1>
 </div>
 <br>
-<!-- <mat-card class="todoNovo"> -->
-    <!-- <mat-card-actions layout="row" align="left"> -->
-        <button class="btn">
+    <div>
+        <button mat-raised-button color="success" class="full-width"> 
             <a [routerLink]="[ '/todo/']"> Novo Cliente</a>
-        </button>
-    <!-- </mat-card-actions> -->
-<!-- </mat-card> -->
+         </button>
+    </div>
 <br>
 <br>
-
 <div fxLayout="row wrap" fxLayoutGap="10px" >
     <ng-container *ngFor="let item of todoListArray; let itemIndex = index">
         <mat-card class="todoItem">
@@ -19,11 +16,11 @@
                 <mat-card-title>
                 {{item.todoTitle}}  
                 </mat-card-title>
-                <mat-card-subtitle>Data de Nascimento: {{item.creationDate}}</mat-card-subtitle>
+                <mat-card-subtitle>Data de Nascimento: {{item.creationDate | date:"dd/MM/yyyy"}}</mat-card-subtitle>
                 <mat-card-subtitle>Ativo: {{item.done == '0' ? 'Não' : item.done == '1' ? 'Sim' : 'erro'}}</mat-card-subtitle>                
                 <mat-card-subtitle>Sexo: {{item.priority == 1 ? 'Masculino' : item.priority == 2 ? 'Feminino' : 'erro'}}</mat-card-subtitle>
             </mat-card-header>
-            <mat-card-actions layout="row" align="left">
+            <mat-card-actions layout="row" align="end">
                     <button mat-button>
                         <a [routerLink]="[ '/todo', item.id]">
                             <mat-icon>edit</mat-icon>

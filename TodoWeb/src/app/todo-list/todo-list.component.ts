@@ -6,7 +6,7 @@ import { Todo } from '../todo';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss']
+  styleUrls: ['./todo-list.component.scss'] 
 })
 export class TodoListComponent implements OnInit {
 
@@ -21,9 +21,9 @@ export class TodoListComponent implements OnInit {
     this.getTodos();
   }
 
-  public getTodos(): void {
+  public getTodos(): void {    
     this.loading = true;
-    setTimeout(() => {
+    setTimeout(() => {      
       this.todoService.retrieveAll()
       .subscribe(items => {
         this.loading = false;
@@ -38,21 +38,13 @@ export class TodoListComponent implements OnInit {
   public concludeTodo(todoIndex: number): void {
     this.loading = true;
     setTimeout(() => {
-      let todo = this.todoListArray[todoIndex];
-      // if (todo.done) {
+      let todo = this.todoListArray[todoIndex];      
         this.todoService.delete(todo.id)
         .subscribe(() => {
-          this.successMessage("Todo removido com sucesso");
+          this.successMessage("Cliente removido com sucesso");
           this.getTodos();
         }
-        ,(error) => this.errorMessage(error, "Erro ao atualizar Todo"));
-      // }
-      // else {
-      //   todo.done = true;
-      //   this.todoService.update(todo)
-      //   .subscribe((data: Todo) => this.successMessage("Todo atualizado com sucesso")
-      //   ,(error) => this.errorMessage(error, "Erro ao atualizar Todo"));
-      // }
+        ,(error) => this.errorMessage(error, "Erro ao atualizar Cliente"));
     },2000);
   }
 
@@ -72,6 +64,5 @@ export class TodoListComponent implements OnInit {
     this._snackBar.open(errorMessage, null, {
       duration: 2000,
     })
-  }
-  
+  }  
 }

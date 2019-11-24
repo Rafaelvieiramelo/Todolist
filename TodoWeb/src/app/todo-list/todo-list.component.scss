@@ -1,17 +1,11 @@
 .cabecalho{
-
+    font-weight: bold;
     height: 20%;
-    min-height: 25%;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
+    display: flex;    
+    align-items: center;    
     justify-content: center;
-    background-color: rgba(200, 206, 209, 0.938)
+    background-color: rgba(183, 208, 221, 0.938)
 
-
-     
 }
 .todoItem {
     margin-bottom: 20px;

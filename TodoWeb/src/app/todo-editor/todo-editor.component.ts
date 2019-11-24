@@ -62,27 +62,33 @@ export class TodoEditorComponent implements OnInit {
       this.loading = false;
     }, 1000);
   }
+  public voltar(): void{    
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    }, 1000);
+  }
 
   public doRequest(): void {
     this.loading = true;
-    setTimeout(() => {
+    setTimeout(() => {      
       let data: Todo = this.todoForm.value;
       data.creationDate = data.parsedDate.toDateString();
       if (data.id === undefined || data.id === "")
-      {
+      {        
         this.todoService.create(data)
-        .subscribe((data: Todo) => this.successMessage("Todo criado com sucesso")
-        ,(error) => this.errorMessage(error, "Erro ao inserir novo Todo"));
+        .subscribe((data: Todo) => this.successMessage("Cliente criado com sucesso")
+        ,(error) => this.errorMessage(error, "Erro ao inserir novo Clientedo"));
       }
       else 
       {
-        this.todoService.update(data)
-        .subscribe((data: Todo) => this.successMessage("Todo atualizado com sucesso")
-        ,(error) => this.errorMessage(error, "Erro ao atualizar Todo"));
+        this.todoService.update(data)        
+        .subscribe((data: Todo) => this.successMessage("Cliente atualizado com sucesso")
+        ,(error) => this.errorMessage(error, "Erro ao atualizar Cliente"));
       }
     },2000);
   }
-
+  
   private successMessage(successMessage: string) 
   {
     this.loading = false;
